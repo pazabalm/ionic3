@@ -1,0 +1,8 @@
+CUANDO APARECE EL ERROR DE [ERROR] The Cordova CLI was not found on your PATH. Please install Cordova globally:
+        
+        npm i -g cordova
+        
+        
+export PATH=${PATH}:~/.npm-global/lib/node_modules/cordova/bin
+-------------------
+COMPILA
