@@ -4,3 +4,6 @@ Could not find an installed version of Gradle either in Android Studio.. Ionic, 
 -----------------------------------------
 PARA INSTALAR STUDIO
 https://www.xatakandroid.com/programacion-android/como-instalar-el-android-sdk-y-para-que-nos-sirve
+
+
+npm install -g cordova-cli
