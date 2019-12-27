@@ -8,7 +8,6 @@
   </ion-toolbar>
 </ion-header>
 
-
 <ion-content color="dark">
   <ion-grid fixed>
       <ion-row>
@@ -16,19 +15,23 @@
             <ion-card color="dark">
                   <ion-card-header>
                         <ion-card-subtitle> 
-                            <span class="text-primary"> {{ i+1 }}. </span>
-                            <span class="noticia-source-name"> {{ noticia.source.name }} </span> 
+                            <!-- <span class="text-primary"> {{ i+1 }}. </span> -->
+                            <span class="noticia-source-name"> 
+                                {{ noticia.date_modified | date: 'dd/MM/yyyy'}} 
+                            </span> 
                         </ion-card-subtitle>
                         
                         <ion-card-title> {{ noticia.title }}</ion-card-title>
                   </ion-card-header>
 
-                  <ion-img *ngIf="noticia.urlToImage" [src]="noticia.urlToImage"> <!-- si tiene imagen la muestra sino no la muestra -->       
+                  <!-- si tiene imagen la muestra sino no la muestra -->
+                
+                  <ion-img *ngIf="noticia.image" [src]="noticia.image">        
                   </ion-img>
-
+                
                   <ion-card-content>
                       <p>
-                          {{ noticia.description }}
+                          {{ noticia.content_text | slice:0:150 }}
                       </p>
                   </ion-card-content>
 
