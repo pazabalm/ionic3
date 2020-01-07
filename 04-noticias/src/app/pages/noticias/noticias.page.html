@@ -1,14 +1,26 @@
+<!--
+
 <ion-header no-border>
-  <ion-toolbar color="dark">
-<!-- <ion-img src="logo_naranjo.png"></ion-img> -->
-<img width="100" height="80" src="assets/logo_naranjo.png" alt="">
+  <ion-toolbar>
+ <ion-img src="logo_naranjo.png"></ion-img> 
     <ion-title padding-left>
       <p>Noticias por API</p>
     </ion-title>
   </ion-toolbar>
 </ion-header>
+-->
 
-<ion-content color="dark">
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Novedades</ion-title>
+    <ion-buttons slot="start">
+        <ion-menu-button color="primary" menu="PrimerMenu"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
   <ion-grid fixed>
       <ion-row>
           <ion-col size="12" size-lg="3" size-md="4" size-sm="6" size-xs="12" *ngFor="let noticia of noticias; let i = index"> 
@@ -19,6 +31,14 @@
                             <span class="noticia-source-name"> 
                                 {{ noticia.date_modified | date: 'dd/MM/yyyy'}} 
                             </span> 
+
+                            <div class="noticia-more">
+                                <ion-button fill="clear"
+                                      (click)="lanzaMenu()">
+                                <ion-icon slot="icon-only"
+                                          name="more"></ion-icon>
+                                </ion-button>
+                            </div>
                         </ion-card-subtitle>
                         
                         <ion-card-title> {{ noticia.title }}</ion-card-title>
@@ -31,9 +51,20 @@
                 
                   <ion-card-content>
                       <p>
-                          {{ noticia.content_text | slice:0:150 }}
+                          {{ noticia.content_text | slice:0:150 }} ...
+
                       </p>
+                          <ion-button color="primary" size="small" href="{{ noticia.url }}">Ver más</ion-button>                      
+
+                          <!-- 
+                        <ion-avatar slot="end">
+                            <img src="{{ noticia.author.avatar}}">
+                        </ion-avatar>
+                        
+                        <ion-label>Escrito por {{ noticia.author.name }}</ion-label> -->
+                        
                   </ion-card-content>
+
 
             </ion-card>
           </ion-col>

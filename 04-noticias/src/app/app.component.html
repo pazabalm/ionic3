@@ -1,3 +1,39 @@
+  <ion-menu side="start" 
+          menuId="PrimerMenu"
+          content-id="Principal">
+    <ion-header>
+
+      <ion-toolbar color="primary">
+        <ion-title>Opciones</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <ion-item (click)="BotonNoticias()">
+            <ion-icon name="folder-open" slot="start"></ion-icon> Noticias y Novedades
+        </ion-item>
+        
+        <ion-item routerLink="tabs/tab2">
+            <ion-icon name="calendar" slot="start"></ion-icon> Calendario Eventos
+        </ion-item>
+
+        <ion-item routerLink="/tab3">
+          <ion-icon name="happy" slot="start"></ion-icon> Nosotros
+      </ion-item>
+
+        <ion-item>
+            <ion-icon name="log-in" slot="start"></ion-icon> Identificación
+        </ion-item>
+
+        <ion-item>
+            <ion-icon name="log-out" slot="start"></ion-icon> Cerrar sesión
+        </ion-item>
+
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+
+  
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+    <ion-router-outlet id="Principal"></ion-router-outlet>
 </ion-app>
