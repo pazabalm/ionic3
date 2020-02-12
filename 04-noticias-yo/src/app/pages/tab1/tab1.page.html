@@ -1,0 +1,47 @@
+
+<ion-header no-border>
+  <ion-toolbar color="blue">
+<!-- <img width="100" height="80" src="assets/logo_naranjo.png" alt=""> -->
+    <ion-title padding-left>
+      <p>Noticias y Novedades</p>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-grid fixed>
+      <ion-row>
+          <ion-col size="12" size-lg="3" size-md="4" size-sm="6" size-xs="12" *ngFor="let noticia of noticias"> 
+            <ion-card >
+                  <ion-card-header>
+                        <ion-card-subtitle> 
+                            <!-- <span class="text-primary"> {{ i+1 }}. </span> -->
+                            <span class="noticia-source-name"> 
+                                {{ noticia.date_modified | date: 'dd/MM/yyyy'}} 
+                            </span> 
+                        </ion-card-subtitle>
+                        
+                        <ion-card-title> {{ noticia.title }} </ion-card-title>
+                  </ion-card-header>
+
+                  <!-- si tiene imagen la muestra sino no la muestra -->
+                
+                  <ion-img class="bordes-suaves" *ngIf="noticia.image" [src]="noticia.image">        
+                  </ion-img>
+                
+                  <ion-card-content>
+                      <p>
+                        {{ noticia.content_text | slice:0:150 }} ...
+                      </p>
+                      <p>
+                        <ion-button href="{{ noticia.url }}" size="small">Ver más</ion-button>
+                      </p>
+                      
+                  </ion-card-content>
+
+            </ion-card>
+          </ion-col>
+      </ion-row>
+  </ion-grid>
+</ion-content>

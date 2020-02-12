@@ -33,15 +33,13 @@
                             </span> 
 
                             <div class="noticia-more">
-                                <ion-button fill="clear"
-                                      (click)="lanzaMenu()">
-                                <ion-icon slot="icon-only"
-                                          name="more"></ion-icon>
+                                <ion-button fill="clear" (click)="lanzaMenu()">
+                                <ion-icon ios="ios-share-outline" md="md-share" name="more"></ion-icon>
                                 </ion-button>
                             </div>
                         </ion-card-subtitle>
                         
-                        <ion-card-title> {{ noticia.title }}</ion-card-title>
+                        <ion-card-title> {{ noticia.title }} </ion-card-title>
                   </ion-card-header>
 
                   <!-- si tiene imagen la muestra sino no la muestra -->
@@ -64,7 +62,6 @@
                         <ion-label>Escrito por {{ noticia.author.name }}</ion-label> -->
                         
                   </ion-card-content>
-
 
             </ion-card>
           </ion-col>

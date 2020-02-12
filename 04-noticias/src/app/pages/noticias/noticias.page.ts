@@ -11,11 +11,12 @@ import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 })
 
 export class NoticiasPage implements OnInit {
+  
   constructor(
         private noticiasService: NoticiasService, 
         private actionSheetCtrl: ActionSheetController,
-        private socialSharing: SocialSharing) {
-  }
+        private socialSharing: SocialSharing ) 
+        {  }
 
   noticias: Item[] = []; // aquí se guardarán las noticias
 
@@ -27,9 +28,11 @@ export class NoticiasPage implements OnInit {
         })
     */
         this.noticiasService.getTopHeadLines()
-        .subscribe( resp => {console.log('noticias',resp);  
-        this.noticias.push( ...resp.items) // Con los ... se añaden al arreglo articulo por artículo de forma independiente
-         })
+        .subscribe( resp => 
+              { console.log('noticias',resp);  
+                this.noticias.push( ...resp.items)  // Con los ... se añaden al arreglo articulo por artículo de forma independiente
+              }
+         )
   }
 
   async lanzaMenu(){
@@ -42,7 +45,7 @@ export class NoticiasPage implements OnInit {
         icon: 'share',
         handler: () => {
             console.log('Share clicked');
-            //this.socialSharing.share()
+            //this.socialSharing.share(this.noticias.)
         }
       }, {
         text: 'Favorito',
